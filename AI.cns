@@ -1,0 +1,54 @@
+;---------------------------------------------------------------------------
+; A.I. - Helper
+
+[Statedef 19000]
+type = S
+movetype =  I
+physics = N
+ctrl=0
+
+[State 19000, 1]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 19000, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = Invisible
+
+[State 19000, 3]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 19000, 4]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 19000, 5]
+type = ParentVarSet
+triggerall = (Parent, Var(59) != 1)
+trigger1 = ((Parent, Command = "x") && (Command != "x")) || ((Parent, Command = "y") && (Command != "y")) || ((Parent, Command = "z") && (Command != "z"))
+trigger2 = ((Parent, Command = "a") && (Command != "a")) || ((Parent, Command = "b") && (Command != "b")) || ((Parent, Command = "c") && (Command != "c"))
+trigger3 = ((Parent, Command = "holdfwd") && (Command != "holdfwd")) || ((Parent, Command = "holdback") && (Command != "holdback")) 
+trigger4 = ((Parent, Command = "holdup") && (Command != "holdup")) || ((Parent, Command = "holddown") && (Command != "holddown")) 
+var(59) = 1
+
+[State 19000, 6]
+type = ParentVarSet
+triggerall = (Parent, Var(0) != -1)
+trigger1 = ((Parent, Command = "x") && (Command = "x")) || ((Parent, Command = "y") && (Command = "y")) || ((Parent, Command = "z") && (Command = "z"))
+trigger2 = ((Parent, Command = "a") && (Command = "a")) || ((Parent, Command = "b") && (Command = "b")) || ((Parent, Command = "c") && (Command = "c"))
+trigger3 = ((Parent, Command = "holdfwd") && (Command = "holdfwd")) || ((Parent, Command = "holdback") && (Command = "holdback")) 
+trigger4 = ((Parent, Command = "holdup") && (Command = "holdup")) || ((Parent, Command = "holddown") && (Command = "holddown")) 
+var(59) = -1
+
+[State 19000, 7]
+type = DestroySelf
+trigger1 = (Parent, Var(59) = -1)
+
+

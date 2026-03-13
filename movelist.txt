@@ -1,0 +1,141 @@
+*******************************************
+*                B.ORCHID                 *
+*                   BY                    *
+*               AHRIMANES                 *
+*******************************************
+
+_/_/_/_/_/_/
+_/Symbols _/
+_/_/_/_/_/_/
+
+B  = Back
+HB = Hold back
+F  = Forward
+D  = Down
+U  = Up
+
+Qp = Quick Punch
+Mp = Midle Punch
+Fp = Firece Punch
+
+Qk = Quick Kick
+Mk = Midle Kick
+Fk = Firece Kick
+
+
+_/_/_/_/_/_/_/
+_/move list _/
+_/_/_/_/_/_/_/
+
+Fireball = B,D,F,any punch
+tiger morp = HB,F,any punch
+Air tiger = F,B,Mp after an air Fk or Fp
+charge 1 = F,D,B,Qp
+change 1 = F,D,B,Mp
+Spinning Sword = F,D,B,Fp
+Back Flip kick = HB,Fk
+Air Back Flip kick = F,D,B,Fk in the air
+choper quik = HB,F,any kick
+Front Flip: After being knocked down, HB,any kick
+combo breaker = HB,F,any kick
+
+
+_/_/_/_/_/_/_/_/
+_/air juggles _/
+_/_/_/_/_/_/_/_/
+
+1.- B,D,F,Qp
+2.- F,D,B,Mp
+3.- F,D,B,Fp
+
+
+_/_/_/_/_/_/_/_/_/_/
+_/finishing mover _/
+_/_/_/_/_/_/_/_/_/_/
+
+Ultra combo       = while you made a combo up to 3 hits, HB,F,Mp
+Ultimate boobss 1 = while you made a combo up to 3 hits F,D,B,Mk
+Ultimate boobss 2 = any distance, B,F,B,F,Qp
+Humillation       = whe you win 2 rounds and lose 0 then at any distance, F,D,B,Fp  "just work againts B.orchid by me and cvssakura by Warusaki3, if you wish to add this fatality to your char, contact me to know what you need"
+No mercy(frog)1   = while you made a combo up to 3 hits, D,F,B,Qk wait then press FK
+No mercy(frog)2   = 1 body distance, D,F,B,Qk wait then press FK
+No mercy(burn)    = any distance, B,D,F,Fk
+No mercy(Bats)    = any distance, B,D,B,Mp
+No mercy(Cuthead) = any distance, F,D,F,Fp  "just work againts B.orchid, if you wish to add this fatality to your char, contact me to know what you need"
+NO mercy(bat)     = 1 body distance, D,B,F,Qk wait then press FK
+stage fatal.      = when you be in orchid stage and in the secon roud.. make a combo to left the enemy life in < 10, the do a combo ender, if you do ok the enemy will fall from the roof.
+
+
+_/_/_/_/_/_/_/_/_/_/_/_/
+_/the ki fight sistem _/
+_/_/_/_/_/_/_/_/_/_/_/_/
+
+its so simple, Ki sistem is a combo game sistem,
+combos are composed by 3 elements
+
+1.- combo opener CO
+2.- combo linker CL
+3.- combo ender  CE
+
+soo a somple combo is: CO,CL,CE.
+a more complex combo is CO,Cl,Cl,Cl,CE
+
+soo seing this basic example you can see that the CL 
+just can be done after a CO whit some exceptions
+
+there hare some CL that just can do after 
+another CL or after espesific CO
+
+and there are som liker that are openers too.
+
+you will figure out whe you play and try to make your combos
+
+you must do a CL when the last ht of the CO has hit the oponetn.
+you must do a CE when the last ht of the CL has hit the oponetn.
+
+soo here are the CO, CL, CE list.
+
+  _/_/_/_/_/_/_/_/_/
+  _/combo openers _/
+  _/_/_/_/_/_/_/_/_/
+    1.- HB,F,Qp
+    2.- HB,F,Fp
+    3.- F,D,B,Mp
+    4.- HB,F,Fk
+    5.- HB,F,Mk
+    6.- jumping FK
+    7.- jumping FP
+
+  _/_/_/_/_/_/_/_/_/
+  _/combo linkes  _/
+  _/_/_/_/_/_/_/_/_/
+    1.- QP
+    2.- MP
+    3.- FP
+    4.- Qk
+    5.- MK
+    6.- FK
+    7.- HB,FK
+    8.- HB,Mk
+    9.- HB,FP
+    10.- F,D,B,Mp
+    11.- F,D,B,Qp
+    13.- F,B,Mp in the air
+
+  _/_/_/_/_/_/_/_/_/
+  _/combo linkes  _/
+  _/_/_/_/_/_/_/_/_/
+    1.- B,F,Qk
+    2.- B,F,Mk
+    3.- F,D,B,Fp
+    4.- B,D,F,Fp
+    5.- F,D,B,Fk in the air
+
+
+_/_/_/_/_/_/_/_/_/_/
+_/combo examples  _/
+_/_/_/_/_/_/_/_/_/_/
+
+Combo No 1:  CB, F, FK, B, QP, F, FK, B, QP, F, FK, HF, QP, D, B, FP
+
+Combo No 2:  CB, F, MP, B, MK, D,F, Fp 

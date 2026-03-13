@@ -1,0 +1,32 @@
+[Info]
+name     ="KI3 ORCHID 3D"
+displayname ="KI3 ORCHID 3D"
+versiondate =05,01,2012
+mugenversion =11,01,2001
+author ="AHRIMANES" ;updated by Dope
+;webpage = http://ahrimanes.mugenbr.net
+Pal.Default = 1
+pal.defaults=1
+
+[Files]
+cmd      =orchid.cmd
+cns      =orchid.cns
+st       =orchid.cns
+st2      =alway.cns
+st3      =ocommon.cns
+st4      = ocommon.cns ;Common states
+;stcommon = common1.cns ;Common states
+sprite   =orchid.sff
+anim     =orchid.air
+sound    =orchid.snd
+pal1     =orchidreal.act
+stcommon=
+st1=ai.cns
+
+; Arcade mode
+[Arcade]
+;intro.storyboard =intro.def
+;ending.storyboard = ending.def
+
+
+ending.storyboard=

@@ -1,0 +1,624 @@
+;var(8)  --> (decide que movimiento hara la IA desde la pocicion de stand)
+;var(9)  --> acriva triple pindanger
+;var(10) --> determina si ya se hiso algun fatal move
+;var(12) --> evalua si se puede hacer un combo de stand despues de impacto aereo.
+;var(13) --> Stage interact
+;var(14) --> Stage interact
+;Var(32) --> gethitcount
+;Var(35) --> combocount
+;var(59) --> para evaluar la IA
+;var(7)  --> para determinar cundo hacer un breaker (IA)
+;var(6)  --> deciciones de combos por la IA
+
+[StateDef -3]
+
+;=============
+;Damage Correct
+;=============
+[State Mul Set]
+type = AttackMulSet
+trigger1 = 1
+value = 1/(1+Var(35)/7.)
+
+;===========
+;Combo Count
+;===========
+[State Inc Combo Count]
+type = VarAdd
+trigger1 = HitCount-Var(34) > 0
+ignorehitpause = 1
+var(35) = 1
+
+[State PrevHitCount]
+type = VarSet
+trigger1 = 1
+ignorehitpause = 1
+var(34) = HitCount
+
+;[State Combo Count Reset]
+;type = targetLifeadd
+;trigger1 = var(35) = [2,5000]
+;trigger1 = p2life < 3
+;value = 2
+
+;[State Combo Count Reset]
+;type = targetLifeadd
+;trigger1 = var(35) = [2,5000]
+;trigger1 = p2life < 4
+;value = 20
+
+;[State Combo Count Reset] 
+;type = AssertSpecial
+;trigger1 = 1
+;flag = noKoSlow
+;falg2 = nobardisplay
+
+;combobreaker
+;[State Combo Count Reset]
+;type = PlaySnd
+;trigger1 = MoveType = H
+;trigger1 = time = 1
+;trigger1 = var(35) = [1,1000]
+;value = 1,9
+;channel = 6
+
+;checa p2 life
+[State Combo Count Reset]
+type = varset
+trigger1 = P2life <= 0
+trigger1 = var(11)= 0
+var(11)=1
+
+;TRIPLE COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 3
+trigger2 = var(11)=1
+value = 4,0
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 3
+trigger2 = var(11)=1
+anim = 60000
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 3
+trigger2 = var(11)=1
+anim = 60000
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+
+;SUPER COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 4
+trigger2 = var(11)=1
+value = 4,1
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 4
+trigger2 = var(11)=1
+anim = 60001
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 4
+trigger2 = var(11)=1
+anim = 60001
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;HIPER COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 5
+trigger2 = var(11)=1
+value = 4,2
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 5
+trigger2 = var(11)=1
+anim = 60002
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 5
+trigger2 = var(11)=1
+anim = 60002
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;BRUTAL COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 6
+trigger2 = var(11)=1
+value = 4,3
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 6
+trigger2 = var(11)=1
+anim = 60003
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 6
+trigger2 = var(11)=1
+anim = 60003
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;MASTER COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 7
+trigger2 = var(11)=1
+value = 4,4
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 7
+trigger2 = var(11)=1
+anim = 60004
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 7
+trigger2 = var(11)=1
+anim = 60004
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;AWESOME COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 8
+trigger2 = var(11)=1
+value = 4,5
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 8
+trigger2 = var(11)=1
+anim = 60005
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 8
+trigger2 = var(11)=1
+anim = 60005
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;BLASTER COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 9
+trigger2 = var(11)=1
+value = 4,6
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 9
+trigger2 = var(11)=1
+anim = 60006
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 9
+trigger2 = var(11)=1
+anim = 60006
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;KING COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = 10
+trigger2 = var(11)=1
+value = 4,7
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = 10
+trigger2 = var(11)=1
+anim = 60007
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = 10
+trigger2 = var(11)=1
+anim = 60007
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+;KILLER COMBO
+[State Combo Count Reset]
+type = PlaySnd
+trigger1 = P2MoveType != H
+triggerall = var(35) = [11,1000]
+trigger2 = var(11)=1
+value = 4,ifelse(var(10)=0,8,10)
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 1
+trigger1 = P2MoveType != H
+triggerall = var(35) = [11,1000]
+trigger2 = var(11)=1
+trigger2 = var(10)=0
+anim = 60008
+pos = 50,100
+postype = Left
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = Explod
+triggerall = teamside= 2
+trigger1 = P2MoveType != H
+triggerall = var(35) = [11,1000]
+trigger2 = var(11)=1
+trigger2 = var(10)=0
+anim = 60008
+pos = -50,100
+postype = Right
+ontop = 1
+facing = 1
+bindtime = -1
+persistent = 0
+sprpriority = 5
+
+
+[State Combo Count Reset]
+type = VarSet 
+trigger1 = var(11) = 1
+var(11) = 2
+
+
+[State Combo Count Reset,50]
+type = VarSet 
+trigger1 = P2MoveType != H
+ignorehitpause = 1
+var(35) = 0
+;==========
+;Sound Pan
+;==========
+[State Pan]
+type = SndPan
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+channel = 1
+
+[State Pan]
+type = StopSnd
+trigger1 = !Alive
+ignorehitpause = 1
+channel = 1
+
+;==============
+;Get Hit Sound
+;==============
+;[State HitSound]
+;type = PlaySnd
+;triggerall = Time = 1
+;trigger1 = StateNo = 5000
+;trigger2 = StateNo = 5010
+;trigger3 = StateNo = 5020
+;trigger4 = StateNo = 5070
+;trigger5 = StateNo = 5080
+;trigger6 = StateNo = 5100
+;trigger6 = SysVar(1) > 14
+;ignorehitpause = 1
+;value = 5000,Random%5
+;channel = 1
+
+;================
+;Super BG Pal FX
+;================
+;[State Super BG Pal FX]
+;type = BGPalfx
+;triggerall = SysVar(0) = 3
+;triggerall = MoveType != H
+;trigger1 = stateno = [3000,3021]
+;trigger2 = stateno = [3100,3199]
+;trigger3 = stateno = [3200,3201]
+;invertall = 1
+;mul = 212,212,220
+;ignorehitpause = 1
+;time = 1
+;color = 128
+
+;======
+;get hit count
+;======
+[State get hit count]
+type = Varadd
+triggerall = Time = 1
+trigger1 = StateNo = 5000
+trigger2 = StateNo = 5010
+trigger3 = StateNo = 5020
+trigger4 = StateNo = 5070
+trigger5 = StateNo = 5080
+ignorehitpasue = 1
+var(32) = 1
+
+[State Get Hit Count Reset]
+type = VarSet
+trigger1 = MoveType != H
+var(32) = 0
+
+[State Dizzy value Minus]
+type = VarAdd
+trigger1 = 1
+var(1) = -IfElse(Var(1)>=1,1,Var(1))
+
+;[State Dizzy Fall]
+;type = SelfState
+;trigger1 = Alive
+;trigger1 = Var(1) > 1000
+;value = 5300
+;ctrl = 0
+
+;======
+;Debug
+;======
+;[State Debug Message]
+;type = DisplayToClipBoard
+;trigger1 = 1
+;ignorehitpause = 1
+;text = "x pos: %d, y pos: %d, Get Hit Count: %d, Combo Count: %d, stage id: %d"
+;params = Floor(ScreenPos X), floor(ScreenPos Y), Var(32), Var(35),Var(14)
+
+;[State Debug Message]
+;type = AppendToClipBoard
+;trigger1 = 1
+;ignorehitpause = 1
+;text = "\BackEdgeBodyDist: %d, GetHitYAccel: %f, air: %d"
+;params = BackEdgeBodyDist, GetHitVar(yaccel),Var(12)
+
+[State Debug Message]
+type = DisplayToClipBoard
+trigger1 = 1
+text = "P2BodyDist X %f, P2BodyDist Y %f, Var(59)ai = %d"
+params = P2bodydist x, p2bodydist y, Var(59)
+
+
+;=====================
+;Super AfterImageTime
+;=====================
+;[State AfterImageTime]
+;type = AfterImageTime
+;trigger1 = StateNo != [3000,3999]
+;trigger1 = StateNo != [40,52]
+;trigger1 = StateNo != 110
+;ignorehitpause = 1
+;time = 0
+
+;=====================
+;Remove Fire
+;=====================
+;[State Remove 3200]
+;type = RemoveExplod
+;trigger1 = StateNo != 3200
+;trigger1 = NumExplod(3200) > 0
+;ignorehitpause = 1
+;id = 3200
+
+;=====================
+;Charge Explod Remove
+;=====================
+;[State Remove 800]
+;type = RemoveExplod
+;trigger1 = StateNo != 800
+;trigger1 = NumExplod(800) > 0
+;id = 800
+
+;[State Remove 801]
+;type = RemoveExplod
+;trigger1 = StateNo != 800
+;trigger1 = NumExplod(801) > 0
+;id = 801
+
+;==============
+;No Bar
+;==============
+[State No Bar On Intro and Win]
+type = AssertSpecial
+trigger1 = RoundState != 2
+ignorehitpause = 1
+flag =  NoBarDisplay
+
+
+;-------------------------------------------------------------------------
+[StateDef -4]
+
+;===============
+;Stop Dizzy Snd
+;===============
+[State Dizzy]
+type = StopSnd
+trigger1 = StateNo != [5300,5302]
+trigger1 = StateNo != 800
+trigger1 = Var(3)
+ignorehitpause = 1
+channel = 2
+
+[State VarSet]
+type = VarSet
+trigger1 = StateNo != [5300,5302]
+trigger1 = StateNo != 800
+ignorehitpause = 1
+var(3) = 0
+
+
+
+
+
+;---------------------------------------------------------------------------
