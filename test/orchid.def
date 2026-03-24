@@ -1,0 +1,19 @@
+[Info]
+name="orchid"
+displayname="orchid"
+versiondate=
+mugenversion=
+author="Mugen's World"
+pal.defaults=1,
+[Files]
+sprite=orchid.sff
+sound=orchid.snd
+anim=orchid.air
+cmd=orchid.cmd
+cns=orchid.cns
+st=orchid.cns
+stcommon=common1.cns
+pal1=orchid.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=
